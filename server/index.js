@@ -28,6 +28,6 @@ app.get('*', (req,res) => {
   res.sendFile(path.resolve(__dirname, '../build', 'index.html'))
 })
 
-app.listen(3000, () =>
+app.listen(9256, () =>
   console.log('Express server is running on localhost:3001')
 );
