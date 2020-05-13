@@ -10,9 +10,12 @@ import './App.css';
 
 class App extends Component {
   componentDidMount() {
-    fetch(`/studentsdb`)
+    fetch(`/api/studentsdb`)
       .then(response => response.json())
-      .then(state => this.props.getAllStudents(state))
+      .then(state => {
+        console.log(state)
+        this.props.getAllStudents(state)
+      })
   }
 
   render() {

@@ -4,7 +4,7 @@ import axios from 'axios';
 function* createSaga(action) {
   console.log('action', action)
   try {
-    const newStudent = yield call(axios.post, '/studentsdb/create', action.payload);
+    const newStudent = yield call(axios.post, '/api/studentsdb/create', action.payload);
     console.log(newStudent)
 
     yield put({
@@ -25,7 +25,7 @@ function* createSaga(action) {
 
 function* deleteSaga(action) {
   try {
-    yield call(axios.post, '/studentsdb/delete', action.payload
+    yield call(axios.post, '/api/studentsdb/delete', action.payload
     );
 
     yield put({
