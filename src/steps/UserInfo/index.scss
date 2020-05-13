@@ -1,0 +1,16 @@
+.UserInfo {
+  h1, h4 {
+    text-align: center;
+  }
+
+  &__form {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+    div {
+      margin-bottom: 10px;
+    }
+  }
+}

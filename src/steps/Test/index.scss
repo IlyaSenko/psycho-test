@@ -1,0 +1,32 @@
+.Test {
+  h1, h2 {
+    text-align: center;
+    margin: 25px;
+  }
+
+  &__item {
+    display: flex;
+    width: 70vw;
+    margin: auto;
+    justify-content: space-between;
+
+    h4 {
+      margin-right: 15px;
+    }
+
+    label.MuiFormLabel-filled {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+
+    button {
+      margin: 25px;
+    }
+  }
+}

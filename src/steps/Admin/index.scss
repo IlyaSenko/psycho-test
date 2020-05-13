@@ -1,0 +1,17 @@
+.Admin {
+  padding: 40px;
+
+  .MuiTableContainer-root {
+    margin-bottom: 30px;
+  }
+
+  a {
+    color: blue;
+  }
+
+  td {
+    svg {
+      cursor: pointer;
+    }
+  }
+}

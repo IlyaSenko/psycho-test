@@ -1,0 +1,35 @@
+.Result {
+  h1 {
+    text-align: center;
+  }
+
+  &__sections {
+    width: 80vw;
+    margin: auto;
+
+    &__item {
+      margin: 4vh 0;
+      display: flex;
+      justify-content: flex-start;
+
+      &__color {
+        min-width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+      }
+
+      &__text {
+        margin: 0 0 0 20px;
+
+        span {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
