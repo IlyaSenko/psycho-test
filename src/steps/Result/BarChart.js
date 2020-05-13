@@ -18,13 +18,27 @@ class BarChart extends React.Component {
             data: nextProps.data,
             backgroundColor: nextProps.colors
           }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        max:100, // Set it to your Max value
+                        min: 0,
+                        beginAtZero: true
+                    }
+                }]
+            }
         }
       });
   }
 
   render() {
     return (
-      <canvas ref={this.chartRef} />
+      <div style={{position:'relative', margin: 'auto', height:"70vh", width:"80vw"}}>
+        <canvas ref={this.chartRef} />
+      </div>
     );
   }
 }
