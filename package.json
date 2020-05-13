@@ -45,11 +45,11 @@
     "moment": "2.24.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "server": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "node-env-run server --exec nodemon | pino-colada",
+    "start": "node-env-run server --exec nodemon | pino-colada",
     "dev": "run-p server start"
   },
   "eslintConfig": {
