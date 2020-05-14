@@ -55,6 +55,7 @@ class UserInfo extends Component {
       <div className="UserInfo">
         <h1>Визначення множинних інтелектів</h1>
         <h4>(методика Вальтера МакКензі)</h4>
+        <h3>Викладач: Вікторія Олександрівна Гринько</h3>
         <form onSubmit={this.handleSubmit} className="UserInfo__form">
           <TextField value={this.state.name} error={this.state.submitted && this.state.name === ""} name="name" onChange={this.handleChange} label="Ім'я і Прізвище" />
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
