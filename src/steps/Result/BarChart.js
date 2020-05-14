@@ -36,7 +36,7 @@ class BarChart extends React.Component {
 
   render() {
     return (
-      <div style={{position:'relative', margin: 'auto', height:"70vh", width:"80vw"}}>
+      <div style={{position:'relative', margin: 'auto', width:"80vw"}}>
         <canvas ref={this.chartRef} />
       </div>
     );
