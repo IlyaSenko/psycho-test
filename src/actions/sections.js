@@ -4,3 +4,9 @@ export function updateSection(obj) {
     payload: obj
   };
 }
+
+export function clearData() {
+  return {
+    type: 'CLEAR_DATA'
+  };
+}

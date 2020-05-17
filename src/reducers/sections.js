@@ -7,6 +7,8 @@ export default function sections(state = initialState, action) {
         ...state,
         [action.payload.sectionNumber]: action.payload.questions
       }
+    case 'CLEAR_DATA':
+      return {}
     default:
   }
   return state;

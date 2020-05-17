@@ -82,8 +82,8 @@ class Admin extends Component {
       })
       let profile = []
       highest.map(([name, number]) => {
-        if((name === '4' || name === '8' || name === '9') && profile.indexOf('ІТРОСПЕКТИВНИЙ') < 0) {
-          profile.push('ІТРОСПЕКТИВНИЙ')
+        if((name === '4' || name === '8' || name === '9') && profile.indexOf('ІНТРОСПЕКТИВНИЙ') < 0) {
+          profile.push('ІНТРОСПЕКТИВНИЙ')
         } else if ((name === '3' || name === '2' || name === '1') && profile.indexOf('АНАЛІТИЧНИЙ') < 0) {
           profile.push('АНАЛІТИЧНИЙ')
         } else if ((name === '7' || name === '6' || name === '5') && profile.indexOf('ІНТЕРАКТИВНИЙ') < 0) {
@@ -110,7 +110,7 @@ class Admin extends Component {
               group: item.group,
               year: item.year,
               quantity: course.quantity + 1,
-              itrospective: item.profile.includes('ІТРОСПЕКТИВНИЙ') ? course.itrospective + 1 : course.itrospective,
+              itrospective: item.profile.includes('ІНТРОСПЕКТИВНИЙ') ? course.itrospective + 1 : course.itrospective,
               analytic: item.profile.includes('АНАЛІТИЧНИЙ') ? course.analytic + 1 : course.analytic,
               interactive: item.profile.includes('ІНТЕРАКТИВНИЙ') ? course.interactive + 1 : course.interactive
             }
@@ -124,7 +124,7 @@ class Admin extends Component {
           group: item.group,
           year: item.year,
           quantity: 1,
-          itrospective: item.profile.includes('ІТРОСПЕКТИВНИЙ') ? 1 : 0,
+          itrospective: item.profile.includes('ІНТРОСПЕКТИВНИЙ') ? 1 : 0,
           analytic: item.profile.includes('АНАЛІТИЧНИЙ') ? 1 : 0,
           interactive: item.profile.includes('ІНТЕРАКТИВНИЙ') ? 1 : 0
         })
@@ -143,7 +143,7 @@ class Admin extends Component {
         if(key === "analytic") {
           return 'АНАЛІТИЧНИЙ, ' + value
         } else if(key === "itrospective") {
-          return 'ІТРОСПЕКТИВНИЙ, ' + value
+          return 'ІНТРОСПЕКТИВНИЙ, ' + value
         } else if(key === "interactive") {
           return 'ІНТЕРАКТИВНИЙ, ' + value
         }

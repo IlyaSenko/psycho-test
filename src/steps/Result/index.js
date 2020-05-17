@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
 import {connect} from 'react-redux';
+import Button from '@material-ui/core/Button';
 import BarChart from './BarChart';
 import sections from "./sections.js";
 import { css } from "@emotion/core";
+import {Link} from 'react-router-dom'
 import BounceLoader from "react-spinners/BounceLoader";
+import {clearData} from '../../actions/index.js'
 import "./index.scss"
 
 const colorsToPick = {
@@ -71,8 +74,8 @@ class Result extends Component {
     })
     let profile = []
     highest.map(([name, number]) => {
-      if((name === '4' || name === '8' || name === '9') && profile.indexOf('ІТРОСПЕКТИВНИЙ') < 0) {
-        profile.push('ІТРОСПЕКТИВНИЙ')
+      if((name === '4' || name === '8' || name === '9') && profile.indexOf('ІНТРОСПЕКТИВНИЙ') < 0) {
+        profile.push('ІНТРОСПЕКТИВНИЙ')
       } else if ((name === '3' || name === '2' || name === '1') && profile.indexOf('АНАЛІТИЧНИЙ') < 0) {
         profile.push('АНАЛІТИЧНИЙ')
       } else if ((name === '7' || name === '6' || name === '5') && profile.indexOf('ІНТЕРАКТИВНИЙ') < 0) {
@@ -158,7 +161,9 @@ class Result extends Component {
             </div>
           ))}
         </div>
-
+        <Button variant="contained" className="Result__restart" onClick={this.props.clearData}>
+          <Link to="/">Пройти ще раз</Link>
+        </Button>
       </div>
     );
   }
@@ -170,5 +175,5 @@ export default connect(
     students: state.students,
     sections: state.sections
   }),
-  {}
+  {clearData}
 )(Result);

@@ -1,4 +1,6 @@
 .Result {
+  display: flex;
+  flex-direction: column;
   h1 {
     text-align: center;
   }
@@ -31,5 +33,9 @@
         }
       }
     }
+  }
+
+  &__restart {
+    margin: 20px auto;
   }
 }
