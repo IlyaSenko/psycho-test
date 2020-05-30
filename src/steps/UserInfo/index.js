@@ -29,7 +29,10 @@ class UserInfo extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state.birth !== null)
-    if(Object.values(this.state).every(value => value !== "") && this.state.birth !== null && this.state.birth != 'Invalid Date') {
+    let state = Object.assign({}, this.state)
+    delete state.year;
+    delete state.course;
+    if(Object.values(state).every(value => value !== "") && this.state.birth !== null && this.state.birth != 'Invalid Date') {
       let data = this.state;
       delete data.submitted;
       this.props.addUserDataSection(data);
@@ -75,11 +78,28 @@ class UserInfo extends Component {
               }}
             />
           </MuiPickersUtilsProvider>
-          <TextField value={this.state.group} error={this.state.submitted && this.state.group === ""} name="group" onChange={this.handleChange} label="Група" />
+          {/* <TextField value={this.state.group} error={this.state.submitted && this.state.group === ""} name="group" onChange={this.handleChange} label="Група" /> */}
+          <FormControl>
+            <InputLabel id="demo-simple-select-label">Група</InputLabel>
+            <Select
+              error={this.state.submitted && this.state.group === ""}
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              placeholder="Група"
+              value={this.state.group}
+              onChange={this.handleChange}
+              name="group"
+            >
+              {['1А', '1І', '1М', '1Х','2А', '2І', '2М', '2Х','3А', '3І', '3М', '3Х','4А', '4І', '4М', '4Х', '5(1) Маг.', '5(2) Маг.'].map((g, i) => {
+                return (
+                    <MenuItem value={g}>{g}</MenuItem>
+                )
+              })}
+            </Select>
+          </FormControl>
           <FormControl>
             <InputLabel id="demo-simple-select-label">Курс</InputLabel>
             <Select
-              error={this.state.submitted && this.state.course === ""}
               labelId="demo-simple-select-label"
               id="demo-simple-select"
               placeholder="Курс"
@@ -95,7 +115,7 @@ class UserInfo extends Component {
               <MenuItem value='6'>6</MenuItem>
             </Select>
           </FormControl>
-          <TextField value={this.state.year} error={this.state.submitted && this.state.year === ""} name="year" onChange={this.handleChange} label="Рік вступу" />
+          <TextField value={this.state.year} name="year" onChange={this.handleChange} label="Рік вступу" />
           <FormControl>
             <InputLabel id="demo-simple-select-label">Стать</InputLabel>
             <Select

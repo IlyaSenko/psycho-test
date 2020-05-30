@@ -35,7 +35,7 @@ class Admin extends Component {
       list: this.props.students.map(student => {
         return createData(...Object.values(student.user))
       }),
-      courses: [],
+      groups: [],
       loaded: false
     }
   }
@@ -98,27 +98,27 @@ class Admin extends Component {
 
     })
 
-    let courses = [];
+    let groups = [];
 
     list.forEach(item => {
-      if(courses.find(course => course.course === item.course)) {
-        courses = courses.map(course => {
-          if(course.course === item.course) {
+      if(groups.find(group => group.group === item.group)) {
+        groups = groups.map(group => {
+          if(group.group === item.group) {
             return {
               date: item.date,
               course: item.course,
               group: item.group,
               year: item.year,
-              quantity: course.quantity + 1,
-              itrospective: item.profile.includes('ІНТРОСПЕКТИВНИЙ') ? course.itrospective + 1 : course.itrospective,
-              analytic: item.profile.includes('АНАЛІТИЧНИЙ') ? course.analytic + 1 : course.analytic,
-              interactive: item.profile.includes('ІНТЕРАКТИВНИЙ') ? course.interactive + 1 : course.interactive
+              quantity: group.quantity + 1,
+              itrospective: item.profile.includes('ІНТРОСПЕКТИВНИЙ') ? group.itrospective + 1 : group.itrospective,
+              analytic: item.profile.includes('АНАЛІТИЧНИЙ') ? group.analytic + 1 : group.analytic,
+              interactive: item.profile.includes('ІНТЕРАКТИВНИЙ') ? group.interactive + 1 : group.interactive
             }
           }
-          return course;
+          return group;
         })
       } else {
-        courses.push({
+        groups.push({
           date: item.date,
           course: item.course,
           group: item.group,
@@ -130,8 +130,8 @@ class Admin extends Component {
         })
       }
     })
-    courses = courses.map(course => {
-      let profiles = {itrospective: course.itrospective, analytic: course.analytic, interactive: course.interactive}
+    groups = groups.map(group => {
+      let profiles = {itrospective: group.itrospective, analytic: group.analytic, interactive: group.interactive}
       var toSort = [];
       for (var vehicle in profiles) {
           toSort.push([vehicle, profiles[vehicle]]);
@@ -149,13 +149,13 @@ class Admin extends Component {
         }
       })
       return {
-        ...course,
+        ...group,
         profile1: toSort[0],
         profile2: toSort[1],
         profile3: toSort[2]
       }
     })
-    this.setState({list, courses})
+    this.setState({list, groups})
   }
 
   componentWillReceiveProps(nextProps) {
@@ -252,18 +252,18 @@ class Admin extends Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              {this.state.courses.map((course, i) => (
+              {this.state.groups.map((group, i) => (
                 <TableRow key={i}>
                   <TableCell component="th" scope="row">
-                    {new Date(course.date).toLocaleDateString('ua-UA')}
+                    {new Date(group.date).toLocaleDateString('ua-UA')}
                   </TableCell>
-                  <TableCell align="right">{course.course}</TableCell>
-                  <TableCell align="right">{course.group}</TableCell>
-                  <TableCell align="right">{course.year}</TableCell>
-                  <TableCell align="right">{course.quantity}</TableCell>
-                  <TableCell align="right">{course.profile1}</TableCell>
-                  <TableCell align="right">{course.profile2}</TableCell>
-                  <TableCell align="right">{course.profile3}</TableCell>
+                  <TableCell align="right">{group.group}</TableCell>
+                  <TableCell align="right">{group.course}</TableCell>
+                  <TableCell align="right">{group.year}</TableCell>
+                  <TableCell align="right">{group.quantity}</TableCell>
+                  <TableCell align="right">{group.profile1}</TableCell>
+                  <TableCell align="right">{group.profile2}</TableCell>
+                  <TableCell align="right">{group.profile3}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
