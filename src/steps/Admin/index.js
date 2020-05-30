@@ -242,8 +242,8 @@ class Admin extends Component {
             <TableHead>
               <TableRow>
                 <TableCell>Дата проходження</TableCell>
-                <TableCell align="right">Курс </TableCell>
                 <TableCell align="right">Група </TableCell>
+                <TableCell align="right">Курс </TableCell>
                 <TableCell align="right">Рік вступу</TableCell>
                 <TableCell align="right">Кількість Студентів</TableCell>
                 <TableCell align="right">Інтелектуальний профіль</TableCell>
